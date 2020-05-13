@@ -4,34 +4,56 @@
 let timer = 1;
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
-  rectMode(CENTER);
+    createCanvas(window.innerWidth, window.innerHeight);
+    rectMode(CENTER);
 }
 
 function draw() {
-  // Conditionellle nous permettant de savoir si la souris est appuyée 
-  // et si le timer est écoulé
-  if (frameCount % (timer * 60) == 0 && !mouseIsPressed) {
+    // Conditionellle nous permettant de savoir si la souris est appuyée
+    // et si le timer est écoulé
+    //if (frameCount % (timer * 60) == 0 && !mouseIsPressed) {
     // Appel de notre fonction generator
-    generator(width / 2, height / 2, height-150);
-  }
+    //generator(width / 2, height / 2, height-150);
+
+    stroke(0)
+    strokeWeight(2)
+    noFill()
+    beginShape();
+    vertex(windowWidth / 2 - 90, 200);
+    vertex(windowWidth / 2 - 230, 240);
+    vertex(windowWidth / 2 - 350, 350);
+    vertex(windowWidth / 2 - 270, 440);
+    vertex(windowWidth / 2 - 190, 370);
+    vertex(windowWidth / 2 - 190, 700);
+    vertex(windowWidth / 2 + 190, 700);
+    vertex(windowWidth / 2 + 190, 370);
+    vertex(windowWidth / 2 + 270, 440);
+    vertex(windowWidth / 2 + 350, 350);
+    vertex(windowWidth / 2 + 230, 240);
+    vertex(windowWidth / 2 + 90, 200);
+
+
+
+
+    endShape(CLOSE);
 }
+//}
 
 // Fonction avec quatres paramètres
-function generator(x, y, size) {
-  // fill utilise le paramètre de notre fonction
-  for (let offset = size; offset > 0; offset -= 10) { 
-      fill(random(0,230));
-      rect(x, y, offset, offset);
-      console.log(offset);
-  }
+//function generator(x, y, size) {
+// fill utilise le paramètre de notre fonction
+//for (let offset = size; offset > 0; offset -= 10) {
+//fill(random(0,230));
+//rect(x, y, offset, offset);
+//console.log(offset);
+//}
+//}
+
+function mousePressed() {
+    // Fonction de librairie P5 nous permettant de sauvegarder une image du canvas
+    save();
 }
 
-function mousePressed() { 
-  // Fonction de librairie P5 nous permettant de sauvegarder une image du canvas
-  save();
-}
-
-function windowResized() { 
+function windowResized() {
     resizeCanvas(window.innerWidth, window.innerHeight);
 }
